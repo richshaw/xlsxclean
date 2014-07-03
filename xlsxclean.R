@@ -16,7 +16,7 @@ xlsxclean <- function(file,
   library("openxlsx")
   
   ## Read Excel data file
-  data <- read.xlsx(file, sheet = sheet, startRow = startRow, colNames = colNames,skipEmptyRows = skipEmptyRows)
+  data <- read.xlsx(xlsxFile = file, sheet = sheet, startRow = startRow, colNames = colNames,skipEmptyRows = skipEmptyRows)
   
   ## Default from cols
   ##"Please.enter.your.email.address.below."
@@ -24,9 +24,9 @@ xlsxclean <- function(file,
   ##"Please.enter.your.preferred.username.below.(please.limit.it.to.20.characters)."   
   
   ## Default to cols
-  ## Required columns: "Screen Name"  "First Name"  "Email"	
+  ## Required columns: "Screen Name"  "First Name"  "Email"  
   ## Optional columns: "Gender"	"City"	"Segment"	"(Age)"	"(ID)"	"(Panel)"
-
+  
   ## Select needed data 
   data <- subset(data, select = from)
   
@@ -36,7 +36,9 @@ xlsxclean <- function(file,
   ## Remove NA's
   data <- na.omit(data)
   
-  write.csv(data, file = saveFile, row.names=FALSE)
+  #write.csv(data, file = saveFile, row.names=FALSE)
+  
+  data
 }
 
 ## Helper functions
