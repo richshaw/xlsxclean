@@ -75,14 +75,10 @@ shinyServer(function(input, output,session) {
   
   output$downloadCleanedData <- downloadHandler(    
     filename = function() { paste('data-', Sys.Date(), '.csv', sep='') },
-    content = function(file) {
-
-      if (is.null(clean()))
-        return(NULL)
-      
+    content = function(file) {      
       write.csv(clean(), file)
     }
   )
-  
+    
 })
 
