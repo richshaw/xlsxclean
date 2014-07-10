@@ -6,9 +6,16 @@ library(shiny)
 shinyUI(pageWithSidebar(
   
   # Application title
-  headerPanel("XLSX Organizer"),
+  headerPanel("XLSX Cleaner"),
+  
+  
   
   sidebarPanel(
+    icon("github"),
+    tags$a(href="https://github.com/richshaw/xlsxclean", "View on GitHub"),
+    
+    tags$hr(),
+    
     fileInput('file1', 'Choose Excel File',
               accept=c('.xlsx')),
     tags$hr(),
